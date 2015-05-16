@@ -20,6 +20,7 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            post.publish() #publish at the moment 
             return redirect('blog.views.post_list')
     else:
         form = PostForm()
